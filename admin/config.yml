@@ -1,7 +1,7 @@
 backend:
-  name: github
-  repo: taoan-prog/Rinco
+  name: git-gateway
   branch: main
+  site_url: https://magenta-centaur-cb03f0.netlify.app
 
 media_folder: images
 public_folder: images
