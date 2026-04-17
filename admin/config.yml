@@ -1,0 +1,56 @@
+backend:
+  name: github
+  repo: taoan-prog/Rinco
+  branch: main
+
+media_folder: images
+public_folder: images
+
+collections:
+  - name: products
+    label: 产品管理
+    label_singular: 产品
+    folder: _products
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    fields:
+      - label: 产品名称
+        name: title
+        widget: string
+        hint: 例如：Canvas Cosmetic Case
+
+      - label: 货号
+        name: code
+        widget: string
+        hint: 例如：#44776R1
+
+      - label: 分类
+        name: category
+        widget: select
+        options:
+          - { label: "RPET Canvas", value: "RPET Canvas" }
+          - { label: "RPET Neoprene", value: "RPET Neoprene" }
+          - { label: "RPET Sherpa", value: "RPET Sherpa" }
+          - { label: "RPET Terry", value: "RPET Terry" }
+          - { label: "RPET Oxford", value: "RPET Oxford" }
+          - { label: "Recycled Cotton", value: "Recycled Cotton" }
+          - { label: "FSC Paper Straw", value: "FSC Paper Straw" }
+          - { label: "Heat Resistance", value: "Heat Resistance" }
+          - { label: "Product Showcase", value: "Product Showcase" }
+
+      - label: 产品图片
+        name: image
+        widget: image
+        hint: 建议使用白底产品图，JPG格式
+
+      - label: 产品描述
+        name: description
+        widget: text
+        required: false
+        hint: 简短描述产品特点（可选）
+
+      - label: 是否显示
+        name: visible
+        widget: boolean
+        default: true
