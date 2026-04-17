@@ -84,9 +84,9 @@ section{padding:7rem 5rem}
 /* PRODUCTS */
 .prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.8rem;margin-top:3rem}
 .prod-card{cursor:default}
-.prod-img{aspect-ratio:1;background:var(--blush);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;transition:transform 0.5s}
-.prod-card:hover .prod-img{transform:scale(0.96)}
-.prod-inner{width:58%;height:58%;display:flex;align-items:center;justify-content:center}
+.prod-img{aspect-ratio:1;background:var(--blush);overflow:hidden;margin-bottom:1rem;transition:transform 0.5s;display:flex;align-items:center;justify-content:center}
+.prod-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s}
+.prod-card:hover .prod-img img{transform:scale(1.05)}
 .prod-cat{font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--warm-tan);margin-bottom:0.3rem}
 .prod-name{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:300}
 .prod-code{font-size:0.68rem;color:var(--mid);margin-top:0.2rem;opacity:0.7}
@@ -288,14 +288,70 @@ footer{background:var(--dark);border-top:0.5px solid rgba(255,255,255,0.07);padd
   <p class="s-label">Product Range</p>
   <h2 class="s-title">Crafted for the <em>world's finest</em> brands</h2>
   <div class="prod-grid">
-    <div class="prod-card"><div class="prod-img"><div class="prod-inner"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="12" y="30" width="76" height="62" rx="4" fill="none" stroke="#8b6355" stroke-width="2.2"/><path d="M30,30 Q30,14 50,14 Q70,14 70,30" fill="none" stroke="#8b6355" stroke-width="2.2"/><rect x="42" y="34" width="16" height="8" rx="4" fill="none" stroke="#c0392b" stroke-width="1.6"/></svg></div></div><p class="prod-cat">RPET Canvas</p><p class="prod-name">Canvas Tote</p><p class="prod-code">#44776R1</p></div>
-    <div class="prod-card"><div class="prod-img"><div class="prod-inner"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="8" y="35" width="84" height="52" rx="5" fill="none" stroke="#8b6355" stroke-width="2.2"/><line x1="8" y1="56" x2="92" y2="56" stroke="#8b6355" stroke-width="1.5"/><circle cx="50" cy="46" r="4.5" fill="none" stroke="#c0392b" stroke-width="1.6"/></svg></div></div><p class="prod-cat">RPET Oxford</p><p class="prod-name">Oxford Cosmetic Case</p><p class="prod-code">#45537R6</p></div>
-    <div class="prod-card"><div class="prod-img"><div class="prod-inner"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M18,58 Q18,28 50,18 Q82,28 82,58 L82,86 Q82,90 78,90 L22,90 Q18,90 18,86Z" fill="none" stroke="#8b6355" stroke-width="2.2"/><rect x="40" y="26" width="20" height="10" rx="5" fill="none" stroke="#c0392b" stroke-width="1.6"/></svg></div></div><p class="prod-cat">FSC Paper Straw</p><p class="prod-name">Woven Tote Bag</p><p class="prod-code">#46876A</p></div>
-    <div class="prod-card"><div class="prod-img"><div class="prod-inner"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="18" y="38" width="64" height="48" rx="4" fill="none" stroke="#8b6355" stroke-width="2.2"/><path d="M32,38 L32,26 Q32,16 50,16 Q68,16 68,26 L68,38" fill="none" stroke="#8b6355" stroke-width="2"/><line x1="10" y1="54" x2="90" y2="54" stroke="#8b6355" stroke-width="1.5" stroke-dasharray="4,3"/></svg></div></div><p class="prod-cat">Heat Resistance</p><p class="prod-name">Hair Tool Case</p><p class="prod-code">#44027R2A</p></div>
-    <div class="prod-card"><div class="prod-img"><div class="prod-inner"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50,85 Q28,85 22,70 L18,28 Q28,16 50,16 Q72,16 82,28 L78,70 Q72,85 50,85Z" fill="none" stroke="#8b6355" stroke-width="2.2"/><path d="M32,24 Q50,12 68,24" fill="none" stroke="#8b6355" stroke-width="1.5"/></svg></div></div><p class="prod-cat">Recycled Cotton</p><p class="prod-name">Drawstring Pouch</p><p class="prod-code">#45743R3A</p></div>
-    <div class="prod-card"><div class="prod-img"><div class="prod-inner"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><ellipse cx="50" cy="64" rx="38" ry="24" fill="none" stroke="#8b6355" stroke-width="2.2"/><path d="M12,64 Q12,36 50,30 Q88,36 88,64" fill="none" stroke="#8b6355" stroke-width="2"/><rect x="44" y="30" width="12" height="6" rx="3" fill="none" stroke="#c0392b" stroke-width="1.3"/></svg></div></div><p class="prod-cat">Vanity Case</p><p class="prod-name">Round Beauty Box</p><p class="prod-code">#54522R6</p></div>
-    <div class="prod-card"><div class="prod-img"><div class="prod-inner"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="40" width="88" height="42" rx="4" fill="none" stroke="#8b6355" stroke-width="2.2"/><line x1="6" y1="60" x2="94" y2="60" stroke="#8b6355" stroke-width="1.5"/><rect x="28" y="47" width="44" height="7" rx="3.5" fill="none" stroke="#c0392b" stroke-width="1.4"/><path d="M22,40 L22,30 L78,30 L78,40" fill="none" stroke="#8b6355" stroke-width="1.8"/></svg></div></div><p class="prod-cat">RPET Sherpa</p><p class="prod-name">Sherpa Puffer Tote</p><p class="prod-code">#51048R13A</p></div>
-    <div class="prod-card"><div class="prod-img"><div class="prod-inner"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="22" y="22" width="56" height="68" rx="4" fill="none" stroke="#8b6355" stroke-width="2.2"/><line x1="22" y1="44" x2="78" y2="44" stroke="#8b6355" stroke-width="1" opacity="0.35"/><line x1="22" y1="65" x2="78" y2="65" stroke="#8b6355" stroke-width="1" opacity="0.35"/><rect x="36" y="27" width="28" height="11" rx="5.5" fill="none" stroke="#c0392b" stroke-width="1.5"/><circle cx="50" cy="32.5" r="2.5" fill="#c0392b"/></svg></div></div><p class="prod-cat">Brush Case</p><p class="prod-name">Makeup Brush Roll</p><p class="prod-code">#48396R1G</p></div>
+    <div class="prod-card">
+      <div class="prod-img"><img src="images/p01.jpg" alt="RPET Canvas Cosmetic Case" loading="lazy"></div>
+      <p class="prod-cat">RPET Canvas</p><p class="prod-name">Canvas Cosmetic Case</p><p class="prod-code">#44776R1</p>
+    </div>
+    <div class="prod-card">
+      <div class="prod-img"><img src="images/p02.jpg" alt="RPET Neoprene Pouches" loading="lazy"></div>
+      <p class="prod-cat">RPET Neoprene</p><p class="prod-name">Neoprene Pouch Set</p><p class="prod-code">#23157</p>
+    </div>
+    <div class="prod-card">
+      <div class="prod-img"><img src="images/p03.jpg" alt="RPET Sherpa Tote" loading="lazy"></div>
+      <p class="prod-cat">RPET Sherpa</p><p class="prod-name">Sherpa Tote Bag</p><p class="prod-code">#22065</p>
+    </div>
+    <div class="prod-card">
+      <div class="prod-img"><img src="images/p04.jpg" alt="RPET Terry Stripe Tote" loading="lazy"></div>
+      <p class="prod-cat">RPET Terry</p><p class="prod-name">Terry Stripe Tote</p><p class="prod-code">#48632B</p>
+    </div>
+    <div class="prod-card">
+      <div class="prod-img"><img src="images/p05.jpg" alt="Recycled Cotton Canvas Tote" loading="lazy"></div>
+      <p class="prod-cat">Recycled Cotton</p><p class="prod-name">Canvas Print Tote</p><p class="prod-code">#35802R9</p>
+    </div>
+    <div class="prod-card">
+      <div class="prod-img"><img src="images/p06.jpg" alt="Recycled Cotton Pouch" loading="lazy"></div>
+      <p class="prod-cat">Recycled Cotton</p><p class="prod-name">Striped Cotton Pouch</p><p class="prod-code">#46593</p>
+    </div>
+    <div class="prod-card">
+      <div class="prod-img"><img src="images/p07.jpg" alt="FSC Paper Straw Cosmetic Case" loading="lazy"></div>
+      <p class="prod-cat">FSC Paper Straw</p><p class="prod-name">Woven Cosmetic Case</p><p class="prod-code">#47604B</p>
+    </div>
+    <div class="prod-card">
+      <div class="prod-img"><img src="images/p08.jpg" alt="FSC Paper Straw Woven Tote" loading="lazy"></div>
+      <p class="prod-cat">FSC Paper Straw</p><p class="prod-name">Woven Tote Bag</p><p class="prod-code">#46876A</p>
+    </div>
+    <div class="prod-card">
+      <div class="prod-img"><img src="images/p09.jpg" alt="FSC Paper Straw Rinco Pouch" loading="lazy"></div>
+      <p class="prod-cat">FSC Paper Straw</p><p class="prod-name">Signature Woven Pouch</p><p class="prod-code">#53908C</p>
+    </div>
+    <div class="prod-card">
+      <div class="prod-img"><img src="images/p10.jpg" alt="Heat Resistance Hair Tool Case" loading="lazy"></div>
+      <p class="prod-cat">Heat Resistance</p><p class="prod-name">Professional Hair Tool Case</p><p class="prod-code">#56041</p>
+    </div>
+    <div class="prod-card">
+      <div class="prod-img"><img src="images/p11.jpg" alt="Heat Resistance ghd Case" loading="lazy"></div>
+      <p class="prod-cat">Heat Resistance</p><p class="prod-name">Slim Straightener Case</p><p class="prod-code">#44006R2A</p>
+    </div>
+    <div class="prod-card">
+      <div class="prod-img"><img src="images/p12.jpg" alt="Metallic Puffer Tote" loading="lazy"></div>
+      <p class="prod-cat">Product Showcase</p><p class="prod-name">Metallic Puffer Tote</p><p class="prod-code">#47572</p>
+    </div>
+    <div class="prod-card">
+      <div class="prod-img"><img src="images/p13.jpg" alt="Tommy Bahama Duffle Bag" loading="lazy"></div>
+      <p class="prod-cat">Product Showcase</p><p class="prod-name">Sport Duffle Bag</p><p class="prod-code">#47220R1D</p>
+    </div>
+    <div class="prod-card">
+      <div class="prod-img"><img src="images/p14.jpg" alt="Rinco Fringe Tote" loading="lazy"></div>
+      <p class="prod-cat">Product Showcase</p><p class="prod-name">Rinco Fringe Tote</p><p class="prod-code">#T679</p>
+    </div>
+    <div class="prod-card">
+      <div class="prod-img"><img src="images/p15.jpg" alt="Makeup Brush Roll" loading="lazy"></div>
+      <p class="prod-cat">Product Showcase</p><p class="prod-name">Makeup Brush Roll</p><p class="prod-code">#48396R1G</p>
+    </div>
+    <div class="prod-card">
+      <div class="prod-img"><img src="images/p16.jpg" alt="Clinea Bubble Pouches" loading="lazy"></div>
+      <p class="prod-cat">Product Showcase</p><p class="prod-name">Bubble Texture Pouches</p><p class="prod-code">#53475R3</p>
+    </div>
   </div>
 </section>
 
