@@ -1,0 +1,20 @@
+{
+  "products": [
+    {"id":"p01","title":"Canvas Cosmetic Case","code":"#44776R1","category":"RPET Canvas","image":"images/p01.jpg","description":"RPET recycled canvas cosmetic case, durable and eco-friendly.","visible":"true"},
+    {"id":"p02","title":"Neoprene Pouch Set","code":"#23157","category":"RPET Neoprene","image":"images/p02.jpg","description":"Colorful RPET neoprene pouches available in multiple sizes.","visible":"true"},
+    {"id":"p03","title":"Sherpa Tote Bag","code":"#22065","category":"RPET Sherpa","image":"images/p03.jpg","description":"Soft RPET sherpa tote bag with luxurious texture.","visible":"true"},
+    {"id":"p04","title":"Terry Stripe Tote","code":"#48632B","category":"RPET Terry","image":"images/p04.jpg","description":"RPET terry fabric stripe tote with matching pouch.","visible":"true"},
+    {"id":"p05","title":"Canvas Print Tote","code":"#35802R9","category":"Recycled Cotton","image":"images/p05.jpg","description":"Recycled cotton canvas tote with ocean-themed print.","visible":"true"},
+    {"id":"p06","title":"Striped Cotton Pouch","code":"#46593","category":"Recycled Cotton","image":"images/p06.jpg","description":"Recycled cotton striped pouch with wristlet handle.","visible":"true"},
+    {"id":"p07","title":"Woven Cosmetic Case","code":"#47604B","category":"FSC Paper Straw","image":"images/p07.jpg","description":"FSC paper straw woven cosmetic case with gold zipper.","visible":"true"},
+    {"id":"p08","title":"Woven Tote Bag","code":"#46876A","category":"FSC Paper Straw","image":"images/p08.jpg","description":"Large FSC paper straw woven tote with red accent label.","visible":"true"},
+    {"id":"p09","title":"Signature Woven Pouch","code":"#53908C","category":"FSC Paper Straw","image":"images/p09.jpg","description":"Rinco signature FSC paper straw woven pouch with tassel.","visible":"true"},
+    {"id":"p10","title":"Professional Hair Tool Case","code":"#56041","category":"Heat Resistance","image":"images/p10.jpg","description":"Heat resistant hard case for professional hair straighteners.","visible":"true"},
+    {"id":"p11","title":"Slim Straightener Case","code":"#44006R2A","category":"Heat Resistance","image":"images/p11.jpg","description":"Heat resistant slim case designed for ghd hair straighteners.","visible":"true"},
+    {"id":"p12","title":"Metallic Puffer Tote","code":"#47572","category":"Product Showcase","image":"images/p12.jpg","description":"Eye-catching metallic pink puffer tote bag.","visible":"true"},
+    {"id":"p13","title":"Sport Duffle Bag","code":"#47220R1D","category":"Product Showcase","image":"images/p13.jpg","description":"Classic navy sport duffle bag with stripe detailing.","visible":"true"},
+    {"id":"p14","title":"Rinco Fringe Tote","code":"#T679","category":"Product Showcase","image":"images/p14.jpg","description":"Rinco signature fringe canvas tote with navy handles.","visible":"true"},
+    {"id":"p15","title":"Makeup Brush Roll","code":"#48396R1G","category":"Product Showcase","image":"images/p15.jpg","description":"Professional makeup brush roll in multiple colorways.","visible":"true"},
+    {"id":"p16","title":"Bubble Texture Pouches","code":"#53475R3","category":"Product Showcase","image":"images/p16.jpg","description":"Vibrant bubble-texture pouches in multiple colors.","visible":"true"}
+  ]
+}

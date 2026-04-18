@@ -1,11 +1,355 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rinco Admin</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rinco 管理后台</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --cream:#f5ede4;--blush:#ede0d4;--warm-tan:#b8927a;
+  --dark:#1c1614;--mid:#5a4a40;--red:#c0392b;--accent:#8b6355;
+}
+body{background:var(--cream);color:var(--dark);font-family:'Jost',sans-serif;font-weight:300;min-height:100vh}
+
+/* LOGIN */
+#login-wrap{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:2rem}
+.login-card{background:#fff;padding:3rem;max-width:400px;width:100%;border:0.5px solid rgba(184,146,122,0.3)}
+.login-title{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;margin-bottom:0.5rem}
+.login-sub{font-size:0.8rem;color:var(--mid);margin-bottom:2rem;letter-spacing:0.1em;text-transform:uppercase}
+.form-field{margin-bottom:1.2rem}
+.form-field label{display:block;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--warm-tan);margin-bottom:0.5rem}
+.form-field input,.form-field textarea,.form-field select{width:100%;padding:0.8rem;border:0.5px solid rgba(184,146,122,0.4);background:var(--cream);font-family:inherit;font-size:0.9rem;color:var(--dark)}
+.form-field input:focus,.form-field textarea:focus,.form-field select:focus{outline:none;border-color:var(--dark)}
+.form-field textarea{resize:vertical;min-height:70px}
+.btn{padding:0.85rem 2rem;background:var(--dark);color:var(--cream);border:none;font-family:inherit;font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;cursor:pointer;transition:background 0.3s}
+.btn:hover{background:var(--warm-tan)}
+.btn:disabled{opacity:0.5;cursor:not-allowed}
+.btn-secondary{background:transparent;color:var(--dark);border:0.5px solid var(--dark)}
+.btn-secondary:hover{background:var(--dark);color:var(--cream)}
+.btn-danger{background:#c0392b;color:#fff}
+.btn-danger:hover{background:#a02a1c}
+.err{color:var(--red);font-size:0.85rem;margin-top:1rem}
+.success{color:#0f6e56;font-size:0.85rem;margin-top:1rem}
+
+/* ADMIN */
+#admin-wrap{display:none;max-width:1400px;margin:0 auto;padding:2rem 3rem}
+.admin-header{display:flex;justify-content:space-between;align-items:center;padding-bottom:1.5rem;border-bottom:0.5px solid rgba(184,146,122,0.3);margin-bottom:2.5rem}
+.admin-title{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300}
+.admin-sub{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--warm-tan);margin-top:0.3rem}
+.admin-actions{display:flex;gap:1rem}
+.products-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem}
+.p-card{background:#fff;border:0.5px solid rgba(184,146,122,0.3);padding:1.2rem;transition:transform 0.2s,border-color 0.2s;cursor:pointer}
+.p-card:hover{border-color:var(--dark)}
+.p-thumb{aspect-ratio:1;background:var(--blush);margin-bottom:1rem;overflow:hidden}
+.p-thumb img{width:100%;height:100%;object-fit:cover}
+.p-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:400;margin-bottom:0.3rem}
+.p-meta{font-size:0.72rem;color:var(--mid);line-height:1.6}
+.p-hidden{opacity:0.5}
+.p-hidden-label{display:inline-block;padding:0.2rem 0.6rem;background:var(--warm-tan);color:#fff;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;margin-top:0.4rem}
+
+/* MODAL */
+.modal{display:none;position:fixed;inset:0;background:rgba(28,22,20,0.7);z-index:100;align-items:center;justify-content:center;padding:2rem}
+.modal.open{display:flex}
+.modal-content{background:#fff;max-width:600px;width:100%;padding:2.5rem;max-height:90vh;overflow-y:auto}
+.modal-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;margin-bottom:1.5rem}
+.modal-actions{display:flex;gap:1rem;justify-content:flex-end;margin-top:2rem}
+.img-preview{max-width:200px;margin-top:0.5rem;border:0.5px solid rgba(184,146,122,0.3)}
+
+/* LOADING */
+.loader{display:inline-block;width:14px;height:14px;border:2px solid rgba(184,146,122,0.3);border-top-color:var(--dark);border-radius:50%;animation:spin 0.6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-screen{position:fixed;inset:0;background:var(--cream);display:flex;align-items:center;justify-content:center;z-index:200}
+</style>
 </head>
 <body>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+<div id="loading-screen" class="loading-screen"><div class="loader"></div></div>
+
+<!-- LOGIN -->
+<div id="login-wrap">
+  <div class="login-card">
+    <h1 class="login-title">Rinco</h1>
+    <p class="login-sub">Admin Portal</p>
+    <form id="login-form">
+      <div class="form-field">
+        <label>管理员密码</label>
+        <input type="password" id="password" required autocomplete="current-password">
+      </div>
+      <button type="submit" class="btn" id="login-btn">登录</button>
+      <div id="login-err" class="err"></div>
+    </form>
+  </div>
+</div>
+
+<!-- ADMIN -->
+<div id="admin-wrap">
+  <div class="admin-header">
+    <div>
+      <h1 class="admin-title">产品管理</h1>
+      <p class="admin-sub">Rinco International · Product CMS</p>
+    </div>
+    <div class="admin-actions">
+      <button class="btn btn-secondary" onclick="openEditor(null)">+ 新增产品</button>
+      <button class="btn btn-secondary" onclick="logout()">退出登录</button>
+    </div>
+  </div>
+  <div id="products-list" class="products-list"></div>
+</div>
+
+<!-- EDITOR MODAL -->
+<div id="editor-modal" class="modal">
+  <div class="modal-content">
+    <h2 class="modal-title" id="modal-title">编辑产品</h2>
+    <form id="editor-form">
+      <input type="hidden" id="edit-id">
+      <div class="form-field">
+        <label>产品名称</label>
+        <input type="text" id="edit-title" required>
+      </div>
+      <div class="form-field">
+        <label>货号</label>
+        <input type="text" id="edit-code" required placeholder="例如 #44776R1">
+      </div>
+      <div class="form-field">
+        <label>分类</label>
+        <select id="edit-category" required>
+          <option value="RPET Canvas">RPET Canvas</option>
+          <option value="RPET Neoprene">RPET Neoprene</option>
+          <option value="RPET Sherpa">RPET Sherpa</option>
+          <option value="RPET Terry">RPET Terry</option>
+          <option value="RPET Oxford">RPET Oxford</option>
+          <option value="Recycled Cotton">Recycled Cotton</option>
+          <option value="FSC Paper Straw">FSC Paper Straw</option>
+          <option value="Heat Resistance">Heat Resistance</option>
+          <option value="Product Showcase">Product Showcase</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label>产品图片</label>
+        <input type="file" id="edit-image" accept="image/jpeg,image/jpg,image/png">
+        <img id="img-preview" class="img-preview" style="display:none">
+        <p style="font-size:0.75rem;color:var(--mid);margin-top:0.4rem">留空则保持原图</p>
+      </div>
+      <div class="form-field">
+        <label>产品描述</label>
+        <textarea id="edit-description"></textarea>
+      </div>
+      <div class="form-field">
+        <label><input type="checkbox" id="edit-visible" checked style="width:auto;margin-right:0.5rem"> 在网站上显示</label>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-danger" id="delete-btn" onclick="deleteProduct()" style="display:none">删除</button>
+        <button type="button" class="btn btn-secondary" onclick="closeEditor()">取消</button>
+        <button type="submit" class="btn" id="save-btn">保存</button>
+      </div>
+      <div id="editor-msg"></div>
+    </form>
+  </div>
+</div>
+
+<script>
+let products = [];
+let token = sessionStorage.getItem('rinco_admin_token');
+
+// init: if already logged in, show admin
+window.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('loading-screen').style.display = 'none';
+  if (token) {
+    showAdmin();
+  }
+});
+
+// LOGIN
+document.getElementById('login-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const pwd = document.getElementById('password').value;
+  const btn = document.getElementById('login-btn');
+  const err = document.getElementById('login-err');
+  err.textContent = '';
+  btn.disabled = true;
+  btn.innerHTML = '<span class="loader"></span> 验证中...';
+  try {
+    const res = await fetch('/api/login', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({password: pwd})
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || '登录失败');
+    token = data.token;
+    sessionStorage.setItem('rinco_admin_token', token);
+    showAdmin();
+  } catch (e) {
+    err.textContent = '密码错误';
+  } finally {
+    btn.disabled = false;
+    btn.textContent = '登录';
+  }
+});
+
+function logout() {
+  sessionStorage.removeItem('rinco_admin_token');
+  token = null;
+  document.getElementById('admin-wrap').style.display = 'none';
+  document.getElementById('login-wrap').style.display = 'flex';
+  document.getElementById('password').value = '';
+}
+
+async function showAdmin() {
+  document.getElementById('login-wrap').style.display = 'none';
+  document.getElementById('admin-wrap').style.display = 'block';
+  await loadProducts();
+}
+
+async function loadProducts() {
+  const list = document.getElementById('products-list');
+  list.innerHTML = '<p style="color:var(--mid);grid-column:1/-1;text-align:center">加载中...</p>';
+  try {
+    const res = await fetch('/api/products', {
+      headers: {'Authorization': 'Bearer ' + token}
+    });
+    if (res.status === 401) { logout(); return; }
+    const data = await res.json();
+    products = data.products || [];
+    renderProducts();
+  } catch (e) {
+    list.innerHTML = '<p class="err">加载失败：' + e.message + '</p>';
+  }
+}
+
+function renderProducts() {
+  const list = document.getElementById('products-list');
+  if (!products.length) {
+    list.innerHTML = '<p style="color:var(--mid);grid-column:1/-1;text-align:center">暂无产品</p>';
+    return;
+  }
+  list.innerHTML = products.map(p => `
+    <div class="p-card ${p.visible === 'false' ? 'p-hidden' : ''}" onclick="openEditor('${p.id}')">
+      <div class="p-thumb"><img src="/${p.image}" alt="${p.title}" onerror="this.style.display='none'"></div>
+      <div class="p-title">${p.title}</div>
+      <div class="p-meta">${p.category} · ${p.code}</div>
+      ${p.visible === 'false' ? '<span class="p-hidden-label">已隐藏</span>' : ''}
+    </div>
+  `).join('');
+}
+
+function openEditor(id) {
+  const p = id ? products.find(x => x.id === id) : null;
+  document.getElementById('modal-title').textContent = p ? '编辑产品' : '新增产品';
+  document.getElementById('edit-id').value = p ? p.id : '';
+  document.getElementById('edit-title').value = p ? p.title : '';
+  document.getElementById('edit-code').value = p ? p.code : '';
+  document.getElementById('edit-category').value = p ? p.category : 'RPET Canvas';
+  document.getElementById('edit-description').value = p ? (p.description || '') : '';
+  document.getElementById('edit-visible').checked = p ? p.visible !== 'false' : true;
+  document.getElementById('edit-image').value = '';
+  document.getElementById('img-preview').style.display = 'none';
+  document.getElementById('delete-btn').style.display = p ? 'inline-block' : 'none';
+  document.getElementById('editor-msg').innerHTML = '';
+  document.getElementById('editor-modal').classList.add('open');
+}
+
+function closeEditor() {
+  document.getElementById('editor-modal').classList.remove('open');
+}
+
+// IMAGE PREVIEW
+document.getElementById('edit-image').addEventListener('change', (e) => {
+  const file = e.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = () => {
+      const img = document.getElementById('img-preview');
+      img.src = reader.result;
+      img.style.display = 'block';
+    };
+    reader.readAsDataURL(file);
+  }
+});
+
+// SAVE PRODUCT
+document.getElementById('editor-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = document.getElementById('save-btn');
+  const msg = document.getElementById('editor-msg');
+  msg.innerHTML = '';
+  btn.disabled = true;
+  btn.innerHTML = '<span class="loader"></span> 保存中...';
+  try {
+    const id = document.getElementById('edit-id').value;
+    const fileInput = document.getElementById('edit-image');
+    let imageBase64 = null;
+    let imageFilename = null;
+    if (fileInput.files[0]) {
+      const file = fileInput.files[0];
+      imageFilename = file.name;
+      imageBase64 = await new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result.split(',')[1]);
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+    }
+    const payload = {
+      id: id || null,
+      title: document.getElementById('edit-title').value,
+      code: document.getElementById('edit-code').value,
+      category: document.getElementById('edit-category').value,
+      description: document.getElementById('edit-description').value,
+      visible: document.getElementById('edit-visible').checked ? 'true' : 'false',
+      imageBase64,
+      imageFilename
+    };
+    const res = await fetch('/api/product-save', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token},
+      body: JSON.stringify(payload)
+    });
+    if (res.status === 401) { logout(); return; }
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || '保存失败');
+    msg.innerHTML = '<p class="success">✓ 保存成功！网站将在1-2分钟内更新</p>';
+    await loadProducts();
+    setTimeout(closeEditor, 1500);
+  } catch (e) {
+    msg.innerHTML = '<p class="err">保存失败：' + e.message + '</p>';
+  } finally {
+    btn.disabled = false;
+    btn.textContent = '保存';
+  }
+});
+
+// DELETE PRODUCT
+async function deleteProduct() {
+  const id = document.getElementById('edit-id').value;
+  if (!id) return;
+  if (!confirm('确定删除这个产品吗？此操作不可恢复。')) return;
+  const btn = document.getElementById('delete-btn');
+  const msg = document.getElementById('editor-msg');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="loader"></span> 删除中...';
+  try {
+    const res = await fetch('/api/product-save', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token},
+      body: JSON.stringify({id, delete: true})
+    });
+    if (res.status === 401) { logout(); return; }
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || '删除失败');
+    msg.innerHTML = '<p class="success">✓ 删除成功</p>';
+    await loadProducts();
+    setTimeout(closeEditor, 1000);
+  } catch (e) {
+    msg.innerHTML = '<p class="err">删除失败：' + e.message + '</p>';
+  } finally {
+    btn.disabled = false;
+    btn.textContent = '删除';
+  }
+}
+</script>
+
 </body>
 </html>

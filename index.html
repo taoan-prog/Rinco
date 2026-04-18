@@ -17,14 +17,15 @@ html{scroll-behavior:smooth}
 body{background:var(--cream);color:var(--dark);font-family:'Jost',sans-serif;font-weight:300;overflow-x:hidden}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1rem 5rem;background:rgba(245,237,228,0.95);backdrop-filter:blur(10px);border-bottom:0.5px solid rgba(184,146,122,0.25)}
-.nav-logo svg{height:44px;width:auto;display:block}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.2rem 5rem;background:rgba(245,237,228,0.95);backdrop-filter:blur(10px);border-bottom:0.5px solid rgba(184,146,122,0.25)}
+.nav-logo{display:flex;align-items:center}
+.logo-img{height:72px;width:auto;display:block}
 .nav-links{display:flex;gap:2.5rem;list-style:none}
 .nav-links a{text-decoration:none;color:var(--mid);font-size:0.74rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:400;transition:color 0.3s}
 .nav-links a:hover{color:var(--dark)}
 
 /* HERO */
-.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:0 5rem;padding-top:86px;gap:5rem}
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:0 5rem;padding-top:120px;gap:5rem}
 .hero-eyebrow{font-size:0.7rem;letter-spacing:0.24em;text-transform:uppercase;color:var(--warm-tan);margin-bottom:1.6rem;font-weight:400}
 .hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,4.8vw,5.6rem);font-weight:300;line-height:1.06;margin-bottom:1.8rem}
 .hero-title em{font-style:italic;color:var(--warm-tan)}
@@ -35,10 +36,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .btn-outline:hover{background:var(--dark);color:var(--cream)}
 .hero-visual{position:relative;display:flex;align-items:center;justify-content:center;height:580px}
 .hero-card-bg{width:360px;height:500px;background:var(--blush);border-radius:2px;display:flex;align-items:center;justify-content:center}
-.hero-stat{position:absolute;background:var(--dark);color:var(--cream);padding:1rem 1.5rem;font-size:0.78rem}
-.hero-stat.tr{top:50px;right:-30px}
-.hero-stat.bl{bottom:70px;left:-40px}
-.stat-n{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:300;display:block;margin-bottom:0.15rem}
+.hero-stat-feature{position:absolute;bottom:50px;right:-40px;background:var(--dark);color:var(--cream);padding:2rem 2.5rem;display:flex;flex-direction:column;align-items:flex-start;min-width:240px}
+.stat-n-big{font-family:'Cormorant Garamond',serif;font-size:3.8rem;font-weight:300;line-height:1;margin-bottom:0.5rem}
+.stat-label{font-size:0.9rem;letter-spacing:0.06em;margin-bottom:0.6rem;color:var(--cream)}
+.stat-sub{font-size:0.66rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--warm-tan)}
 
 /* MARQUEE */
 .mq-wrap{background:var(--dark);padding:0.85rem 0;overflow:hidden;white-space:nowrap}
@@ -71,6 +72,8 @@ section{padding:7rem 5rem}
 .mat-section .s-label{color:var(--warm-tan)}
 .mat-section .s-title{color:var(--cream)}
 .mat-section .s-title em{color:var(--warm-tan)}
+.mat-intro{font-size:0.92rem;line-height:1.9;color:rgba(245,237,228,0.7);max-width:640px;margin-top:1.5rem;margin-bottom:1rem}
+.mat-footer{font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--warm-tan);text-align:center;margin-top:3rem;padding-top:2rem;border-top:0.5px solid rgba(184,146,122,0.2)}
 .mat-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:0.5px solid rgba(184,146,122,0.2);margin-top:3rem}
 .mat-card{padding:2.5rem 2rem;border-right:0.5px solid rgba(184,146,122,0.2);position:relative;transition:background 0.4s}
 .mat-card:last-child{border-right:none}
@@ -82,6 +85,7 @@ section{padding:7rem 5rem}
 .mat-desc{font-size:0.82rem;line-height:1.85;color:rgba(245,237,228,0.55)}
 
 /* PRODUCTS */
+.prod-intro{font-size:0.92rem;line-height:1.9;color:var(--mid);max-width:640px;margin-top:1.5rem;margin-bottom:0}
 .prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.8rem;margin-top:3rem}
 .prod-card{cursor:default}
 .prod-img{aspect-ratio:1;background:var(--blush);overflow:hidden;margin-bottom:1rem;transition:transform 0.5s;display:flex;align-items:center;justify-content:center}
@@ -91,24 +95,20 @@ section{padding:7rem 5rem}
 .prod-name{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:300}
 .prod-code{font-size:0.68rem;color:var(--mid);margin-top:0.2rem;opacity:0.7}
 
-/* BRANDS */
-.brand-section{background:var(--blush)}
-.brand-intro{font-size:0.88rem;line-height:1.9;color:var(--mid);max-width:520px;margin-top:1rem;margin-bottom:3rem}
-.brand-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:rgba(184,146,122,0.2)}
-.brand-item{background:var(--blush);padding:1.4rem 0.8rem;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Cormorant Garamond',serif;font-size:0.95rem;color:var(--mid);min-height:70px;line-height:1.3;transition:background 0.3s}
-.brand-item:hover{background:var(--cream)}
-
 /* CERTS */
-.cert-wrap{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:3rem}
-.cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-.cert-box{padding:1.4rem 1rem;border:0.5px solid rgba(184,146,122,0.35);text-align:center}
-.cert-name{font-family:'Cormorant Garamond',serif;font-size:1.1rem;margin-bottom:0.3rem}
-.cert-sub{font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--warm-tan)}
-.audit-label{font-size:0.67rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--warm-tan);margin-bottom:1rem}
-.audit-item{display:flex;align-items:center;gap:1rem;padding:0.9rem 0;border-bottom:0.5px solid rgba(184,146,122,0.2);font-size:0.85rem;color:var(--mid)}
-.audit-item:last-child{border-bottom:none}
-.audit-brand{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--dark);min-width:120px}
-.audit-via{font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--warm-tan)}
+.cert-intro{font-size:0.92rem;line-height:1.9;color:var(--mid);max-width:640px;margin-top:1.5rem;margin-bottom:3rem}
+.cert-img-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:2rem}
+.cert-img-card{display:flex;flex-direction:column;background:#fff;border:0.5px solid rgba(184,146,122,0.3);text-decoration:none;color:inherit;transition:transform 0.3s,border-color 0.3s;cursor:pointer}
+.cert-img-card:hover{border-color:var(--dark);transform:translateY(-4px)}
+.cert-img-wrap{aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--cream);padding:1.5rem}
+.cert-img-wrap img{max-width:100%;max-height:100%;object-fit:contain}
+.cert-img-wrap-empty{background:var(--blush);color:var(--warm-tan)}
+.cert-placeholder-text{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;opacity:0.5}
+.cert-placeholder{cursor:default}
+.cert-placeholder:hover{transform:none}
+.cert-img-cap{padding:1rem 1.2rem;border-top:0.5px solid rgba(184,146,122,0.2)}
+.cert-img-name{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:400;color:var(--dark);margin-bottom:0.25rem}
+.cert-img-sub{font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--warm-tan)}
 
 /* CONTACT */
 .contact-section{background:var(--dark);color:var(--cream)}
@@ -123,6 +123,7 @@ section{padding:7rem 5rem}
 .c-quote small{display:block;font-size:0.64rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--warm-tan);margin-top:1rem}
 
 /* FOOTER */
+.footer-logo{height:44px;width:auto;display:block}
 footer{background:var(--dark);border-top:0.5px solid rgba(255,255,255,0.07);padding:1.8rem 5rem;display:flex;justify-content:space-between;align-items:center}
 .f-copy{font-size:0.7rem;color:rgba(245,237,228,0.35);letter-spacing:0.08em}
 .f-url{font-size:0.7rem;color:var(--warm-tan);text-decoration:none}
@@ -134,15 +135,16 @@ footer{background:var(--dark);border-top:0.5px solid rgba(255,255,255,0.07);padd
 
 @media(max-width:960px){
   nav{padding:1rem 1.5rem}.nav-links{display:none}
+  .logo-img{height:48px}
   .hero{grid-template-columns:1fr;padding:1.5rem;padding-top:90px;gap:3rem;min-height:auto}
-  .hero-visual{height:300px}
+  .hero-visual{height:320px}
+  .hero-stat-feature{position:static;margin-top:-60px;align-self:center;right:auto}
   section{padding:4rem 1.5rem}
-  .about-grid,.contact-grid,.cert-wrap{grid-template-columns:1fr;gap:3rem}
+  .about-grid,.contact-grid{grid-template-columns:1fr;gap:3rem}
   .mat-grid{grid-template-columns:1fr}
   .mat-card{border-right:none;border-bottom:0.5px solid rgba(184,146,122,0.2)}
   .prod-grid{grid-template-columns:1fr 1fr}
-  .brand-grid{grid-template-columns:repeat(3,1fr)}
-  .cert-grid{grid-template-columns:1fr 1fr}
+  .cert-img-grid{grid-template-columns:1fr 1fr;gap:1.2rem}
   footer{flex-direction:column;gap:0.6rem;text-align:center;padding:1.5rem}
 }
 </style>
@@ -151,26 +153,13 @@ footer{background:var(--dark);border-top:0.5px solid rgba(255,255,255,0.07);padd
 
 <!-- NAV -->
 <nav>
-  <a href="#" aria-label="Rinco Home">
-    <svg height="48" viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg">
-      <line x1="20" y1="12" x2="20" y2="188" stroke="#1c1614" stroke-width="5" stroke-linecap="butt"/>
-      <line x1="20" y1="12" x2="80" y2="12" stroke="#1c1614" stroke-width="5" stroke-linecap="butt"/>
-      <path d="M80,12 C138,12 142,56 142,68 C142,80 138,118 80,118" fill="none" stroke="#1c1614" stroke-width="5" stroke-linecap="butt"/>
-      <line x1="80" y1="118" x2="20" y2="118" stroke="#1c1614" stroke-width="5" stroke-linecap="butt"/>
-      <line x1="92" y1="118" x2="162" y2="188" stroke="#1c1614" stroke-width="5" stroke-linecap="butt"/>
-      <circle cx="218" cy="56" r="16" fill="#c0392b"/>
-      <rect x="208" y="92" width="14" height="96" fill="none" stroke="#1c1614" stroke-width="4"/>
-      <line x1="248" y1="92" x2="248" y2="188" stroke="#1c1614" stroke-width="5" stroke-linecap="butt"/>
-      <path d="M248,122 C248,92 278,88 296,88 C320,88 336,104 336,128 L336,188" fill="none" stroke="#1c1614" stroke-width="5" stroke-linecap="butt" stroke-linejoin="round"/>
-      <path d="M440,108 C430,88 412,88 396,88 C366,88 352,106 352,138 C352,170 366,188 396,188 C412,188 430,188 440,168" fill="none" stroke="#1c1614" stroke-width="5" stroke-linecap="butt"/>
-      <ellipse cx="528" cy="138" rx="52" ry="52" fill="none" stroke="#1c1614" stroke-width="5"/>
-    </svg>
+  <a href="#" aria-label="Rinco Home" class="nav-logo">
+    <img src="rinco-logo.svg" alt="Rinco" class="logo-img">
   </a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#materials">Materials</a></li>
     <li><a href="#products">Products</a></li>
-    <li><a href="#brands">Clients</a></li>
     <li><a href="#certifications">Certifications</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -179,9 +168,8 @@ footer{background:var(--dark);border-top:0.5px solid rgba(255,255,255,0.07);padd
 <!-- HERO -->
 <section class="hero">
   <div>
-    <p class="hero-eyebrow fu">Sustainable Bag Manufacturer · Shenzhen, China</p>
     <h1 class="hero-title fu d1">Designed<br>for <em>beauty</em><br>Crafted with<br><em>care</em></h1>
-    <p class="hero-desc fu d2">Rinco International is a premium manufacturer of sustainable bags and accessories, trusted by the world's leading luxury beauty and fashion brands.</p>
+    <p class="hero-desc fu d2">Rinco International is a premium manufacturer of sustainable bags and accessories, bringing together craftsmanship, innovation, and responsible sourcing.</p>
     <div class="fu d3">
       <a href="#products" class="btn-primary">View Products</a>
       <a href="#contact" class="btn-outline">Contact Us</a>
@@ -200,13 +188,10 @@ footer{background:var(--dark);border-top:0.5px solid rgba(255,255,255,0.07);padd
         <line x1="100" y1="122" x2="100" y2="168" stroke="#8b6355" stroke-width="0.8" opacity="0.4"/>
       </svg>
     </div>
-    <div class="hero-stat tr">
-      <span class="stat-n">18+</span>
-      Global Brand Partners
-    </div>
-    <div class="hero-stat bl">
-      <span class="stat-n">30+</span>
-      Years of Excellence
+    <div class="hero-stat hero-stat-feature">
+      <span class="stat-n-big">24+</span>
+      <span class="stat-label">Years of Excellence</span>
+      <span class="stat-sub">Est. 2001 · Shenzhen</span>
     </div>
   </div>
 </section>
@@ -214,7 +199,7 @@ footer{background:var(--dark);border-top:0.5px solid rgba(255,255,255,0.07);padd
 <!-- MARQUEE -->
 <div class="mq-wrap" aria-hidden="true">
   <div class="mq-inner">
-    <span class="mq-item">RPET</span><span class="mq-item mq-dot">·</span><span class="mq-item">Recycled Cotton</span><span class="mq-item mq-dot">·</span><span class="mq-item">FSC Paper Straw</span><span class="mq-item mq-dot">·</span><span class="mq-item">ISO 9001 &amp; 14001</span><span class="mq-item mq-dot">·</span><span class="mq-item">GRS Certified</span><span class="mq-item mq-dot">·</span><span class="mq-item">Ecovadis</span><span class="mq-item mq-dot">·</span><span class="mq-item">SEDEX</span><span class="mq-item mq-dot">·</span><span class="mq-item">Sustainable Design</span><span class="mq-item mq-dot">·</span><span class="mq-item">Luxury Craftsmanship</span><span class="mq-item mq-dot">·</span><span class="mq-item">RPET</span><span class="mq-item mq-dot">·</span><span class="mq-item">Recycled Cotton</span><span class="mq-item mq-dot">·</span><span class="mq-item">FSC Paper Straw</span><span class="mq-item mq-dot">·</span><span class="mq-item">ISO 9001 &amp; 14001</span><span class="mq-item mq-dot">·</span><span class="mq-item">GRS Certified</span><span class="mq-item mq-dot">·</span><span class="mq-item">Ecovadis</span><span class="mq-item mq-dot">·</span><span class="mq-item">SEDEX</span><span class="mq-item mq-dot">·</span><span class="mq-item">Sustainable Design</span><span class="mq-item mq-dot">·</span><span class="mq-item">Luxury Craftsmanship</span><span class="mq-item mq-dot">·</span>
+    <span class="mq-item">RPET</span><span class="mq-item mq-dot">·</span><span class="mq-item">Recycled Cotton</span><span class="mq-item mq-dot">·</span><span class="mq-item">FSC Paper Straw</span><span class="mq-item mq-dot">·</span><span class="mq-item">ISO 9001 &amp; 14001</span><span class="mq-item mq-dot">·</span><span class="mq-item">GRS Certified</span><span class="mq-item mq-dot">·</span><span class="mq-item">Ecovadis</span><span class="mq-item mq-dot">·</span><span class="mq-item">SEDEX</span><span class="mq-item mq-dot">·</span><span class="mq-item">Sustainable Design</span><span class="mq-item mq-dot">·</span><span class="mq-item">Quality Craftsmanship</span><span class="mq-item mq-dot">·</span><span class="mq-item">RPET</span><span class="mq-item mq-dot">·</span><span class="mq-item">Recycled Cotton</span><span class="mq-item mq-dot">·</span><span class="mq-item">FSC Paper Straw</span><span class="mq-item mq-dot">·</span><span class="mq-item">ISO 9001 &amp; 14001</span><span class="mq-item mq-dot">·</span><span class="mq-item">GRS Certified</span><span class="mq-item mq-dot">·</span><span class="mq-item">Ecovadis</span><span class="mq-item mq-dot">·</span><span class="mq-item">SEDEX</span><span class="mq-item mq-dot">·</span><span class="mq-item">Sustainable Design</span><span class="mq-item mq-dot">·</span><span class="mq-item">Quality Craftsmanship</span><span class="mq-item mq-dot">·</span>
   </div>
 </div>
 
@@ -224,13 +209,13 @@ footer{background:var(--dark);border-top:0.5px solid rgba(255,255,255,0.07);padd
     <div class="about-text">
       <p class="s-label">About Rinco</p>
       <h2 class="s-title">Where <em>sustainability</em><br>meets precision</h2>
-      <p>Rinco International Co., Ltd is a leading manufacturer of premium sustainable bags and accessories, headquartered in Shenzhen with production facilities in Luan City, Anhui Province, China.</p>
-      <p>We equip and upgrade ourselves constantly to meet requirements on all aspects — technically and ethically — earning the trust of the world's most prestigious luxury and beauty brands.</p>
+      <p>Rinco International Co., Ltd was established in Shenzhen in 2001, with production facilities in Luan City, Anhui Province. We specialize in developing and manufacturing bags and accessories across a wide range of materials and categories.</p>
+      <p>From concept to sample, design proposals to cost optimization, Rinco serves each customer with dedication — equipping and upgrading ourselves constantly to meet every requirement, technically and ethically.</p>
       <div class="stat-boxes">
-        <div class="stat-box"><span class="sb-num">18+</span><span class="sb-lab">Global Brand Partners</span></div>
-        <div class="stat-box"><span class="sb-num">5</span><span class="sb-lab">Major Audit Approvals</span></div>
-        <div class="stat-box"><span class="sb-num">3</span><span class="sb-lab">Eco Material Lines</span></div>
-        <div class="stat-box"><span class="sb-num">30+</span><span class="sb-lab">Years of Excellence</span></div>
+        <div class="stat-box"><span class="sb-num">24+</span><span class="sb-lab">Years of Excellence</span></div>
+        <div class="stat-box"><span class="sb-num">2</span><span class="sb-lab">Manufacturing Facilities</span></div>
+        <div class="stat-box"><span class="sb-num">7,200</span><span class="sb-lab">Sqm Factory Area</span></div>
+        <div class="stat-box"><span class="sb-num">3</span><span class="sb-lab">Core Eco Materials</span></div>
       </div>
     </div>
     <div class="about-img">
@@ -258,6 +243,7 @@ footer{background:var(--dark);border-top:0.5px solid rgba(255,255,255,0.07);padd
 <section id="materials" class="mat-section">
   <p class="s-label">Our Materials</p>
   <h2 class="s-title">Built for a <em>better</em> planet</h2>
+  <p class="mat-intro">These are the core sustainable material lines we currently offer. Rinco works closely with leading fabric mills to continuously explore the frontier of eco-friendly materials — new options are always in development.</p>
   <div class="mat-grid">
     <div class="mat-card">
       <span class="mat-num">01</span>
@@ -281,12 +267,14 @@ footer{background:var(--dark);border-top:0.5px solid rgba(255,255,255,0.07);padd
       <p class="mat-desc">Artisan-woven bags crafted from paper straw sourced from FSC-certified forests, ensuring responsible forest management. Each piece carries an organic, natural texture that is both tactile and earth-conscious.</p>
     </div>
   </div>
+  <p class="mat-footer">More sustainable innovations in progress · Contact us to discuss custom material sourcing</p>
 </section>
 
 <!-- PRODUCTS -->
 <section id="products">
   <p class="s-label">Product Range</p>
-  <h2 class="s-title">Crafted for the <em>world's finest</em> brands</h2>
+  <h2 class="s-title">Built on <em>craftsmanship</em> and quality</h2>
+  <p class="prod-intro">From everyday accessories to premium gifts, every piece reflects our dedication to materials, construction, and finishing. Our experience across categories — cosmetic cases, totes, tech cases, travel bags, and beyond — equips us to serve clients of every scale and style.</p>
   <div class="prod-grid" id="prod-grid">
     <!-- Products loaded dynamically from _products/ -->
   </div>
@@ -294,22 +282,7 @@ footer{background:var(--dark);border-top:0.5px solid rgba(255,255,255,0.07);padd
 
 <script>
 (function(){
-  const files = ["p01","p02","p03","p04","p05","p06","p07","p08","p09","p10","p11","p12","p13","p14","p15","p16"];
   const grid = document.getElementById("prod-grid");
-
-  function parseFrontmatter(text) {
-    const match = text.match(/^---\n([\s\S]*?)\n---/);
-    if (!match) return null;
-    const fm = {};
-    match[1].split("\n").forEach(line => {
-      const idx = line.indexOf(":");
-      if (idx === -1) return;
-      const key = line.slice(0, idx).trim();
-      const val = line.slice(idx + 1).trim().replace(/^["']|["']$/g, "");
-      fm[key] = val;
-    });
-    return fm;
-  }
 
   function renderCard(p) {
     if (p.visible === "false") return "";
@@ -321,55 +294,68 @@ footer{background:var(--dark);border-top:0.5px solid rgba(255,255,255,0.07);padd
     </div>`;
   }
 
-  Promise.all(
-    files.map(f =>
-      fetch("_products/" + f + ".md")
-        .then(r => r.ok ? r.text() : null)
-        .then(text => text ? parseFrontmatter(text) : null)
-        .catch(() => null)
-    )
-  ).then(products => {
-    const html = products.filter(Boolean).map(renderCard).join("");
-    grid.innerHTML = html || "<p style='color:var(--mid);grid-column:1/-1'>No products found.</p>";
-  });
+  fetch("products-index.json")
+    .then(r => r.ok ? r.json() : {products: []})
+    .then(data => {
+      const products = (data.products || []).filter(p => p.visible !== "false");
+      grid.innerHTML = products.map(renderCard).join("")
+        || "<p style='color:var(--mid);grid-column:1/-1'>No products available.</p>";
+    })
+    .catch(() => {
+      grid.innerHTML = "<p style='color:var(--mid);grid-column:1/-1'>Loading failed.</p>";
+    });
 })();
 </script>
-
-<!-- BRANDS -->
-<section id="brands" class="brand-section">
-  <p class="s-label">Our Clients</p>
-  <h2 class="s-title">Trusted by the <em>world's finest</em></h2>
-  <p class="brand-intro">Rinco values the support from our customers and the brands we work for. We equip and upgrade ourselves constantly to meet requirements on all aspects, technically and ethically.</p>
-  <div class="brand-grid">
-    <div class="brand-item">Dior</div><div class="brand-item">Gucci Beauty</div><div class="brand-item">Givenchy Parfums</div>
-    <div class="brand-item">YSL Beauté</div><div class="brand-item">Clarins</div><div class="brand-item">Guerlain Paris</div>
-    <div class="brand-item">Lancôme</div><div class="brand-item">Calvin Klein</div><div class="brand-item">ghd</div>
-    <div class="brand-item">Charlotte Tilbury</div><div class="brand-item">Biotherm</div><div class="brand-item">Shiseido</div>
-    <div class="brand-item">Vichy</div><div class="brand-item">Sephora</div><div class="brand-item">Marc Jacobs</div>
-    <div class="brand-item">Kiehl's</div><div class="brand-item">SkinCeuticals</div><div class="brand-item">Kate Spade</div>
-  </div>
-</section>
 
 <!-- CERTIFICATIONS -->
 <section id="certifications">
   <p class="s-label">Compliance &amp; Certifications</p>
   <h2 class="s-title">Audited. <em>Approved.</em> Trusted.</h2>
-  <div class="cert-wrap">
-    <div class="cert-grid">
-      <div class="cert-box"><div class="cert-name">ISO 9001</div><div class="cert-sub">Quality Management</div></div>
-      <div class="cert-box"><div class="cert-name">ISO 14001</div><div class="cert-sub">Environmental</div></div>
-      <div class="cert-box"><div class="cert-name">GRS</div><div class="cert-sub">Global Recycled Standard</div></div>
-      <div class="cert-box"><div class="cert-name">SEDEX</div><div class="cert-sub">Ethical Trade</div></div>
-      <div class="cert-box"><div class="cert-name">Ecovadis</div><div class="cert-sub">Sustainability Rating</div></div>
-      <div class="cert-box"><div class="cert-name">LVMH</div><div class="cert-sub">Wethica Approved</div></div>
-    </div>
-    <div>
-      <p class="audit-label">Audited &amp; Approved By</p>
-      <div class="audit-item"><span class="audit-brand">L'Oréal</span><span class="audit-via">via ITS</span></div>
-      <div class="audit-item"><span class="audit-brand">LVMH</span><span class="audit-via">via Wethica</span></div>
-      <div class="audit-item"><span class="audit-brand">Estée Lauder</span><span class="audit-via">via SGS</span></div>
-      <div class="audit-item"><span class="audit-brand">Avon</span><span class="audit-via">via BV</span></div>
-      <div class="audit-item"><span class="audit-brand">Walmart</span><span class="audit-via">via SGS</span></div>
+  <p class="cert-intro">Rinco is committed to the highest international standards for quality, environment, and ethical manufacturing. Click any certificate below to view in detail.</p>
+  <div class="cert-img-grid">
+    <a href="certificates/iso-9001.png" target="_blank" class="cert-img-card">
+      <div class="cert-img-wrap"><img src="certificates/iso-9001.png" alt="ISO 9001 Certificate" loading="lazy"></div>
+      <div class="cert-img-cap">
+        <div class="cert-img-name">ISO 9001</div>
+        <div class="cert-img-sub">Quality Management System</div>
+      </div>
+    </a>
+    <a href="certificates/iso-14001.png" target="_blank" class="cert-img-card">
+      <div class="cert-img-wrap"><img src="certificates/iso-14001.png" alt="ISO 14001 Certificate" loading="lazy"></div>
+      <div class="cert-img-cap">
+        <div class="cert-img-name">ISO 14001</div>
+        <div class="cert-img-sub">Environmental Management</div>
+      </div>
+    </a>
+    <a href="certificates/grs-4.png" target="_blank" class="cert-img-card">
+      <div class="cert-img-wrap"><img src="certificates/grs-4.png" alt="GRS 4.0 Certificate" loading="lazy"></div>
+      <div class="cert-img-cap">
+        <div class="cert-img-name">GRS 4.0</div>
+        <div class="cert-img-sub">Global Recycled Standard</div>
+      </div>
+    </a>
+    <a href="certificates/sedex-smeta.png" target="_blank" class="cert-img-card">
+      <div class="cert-img-wrap"><img src="certificates/sedex-smeta.png" alt="SEDEX SMETA Audit Report" loading="lazy"></div>
+      <div class="cert-img-cap">
+        <div class="cert-img-name">SEDEX SMETA</div>
+        <div class="cert-img-sub">Ethical Trade Audit</div>
+      </div>
+    </a>
+    <a href="certificates/loreal-audit.png" target="_blank" class="cert-img-card">
+      <div class="cert-img-wrap"><img src="certificates/loreal-audit.png" alt="L'Oréal Supplier Audit" loading="lazy"></div>
+      <div class="cert-img-cap">
+        <div class="cert-img-name">L'Oréal Audit</div>
+        <div class="cert-img-sub">Social Responsibility Audit</div>
+      </div>
+    </a>
+    <div class="cert-img-card cert-placeholder">
+      <div class="cert-img-wrap cert-img-wrap-empty">
+        <span class="cert-placeholder-text">Ecovadis</span>
+      </div>
+      <div class="cert-img-cap">
+        <div class="cert-img-name">Ecovadis</div>
+        <div class="cert-img-sub">Sustainability Rating</div>
+      </div>
     </div>
   </div>
 </section>
@@ -400,19 +386,7 @@ footer{background:var(--dark);border-top:0.5px solid rgba(255,255,255,0.07);padd
 
 <!-- FOOTER -->
 <footer>
-  <svg height="32" viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg">
-    <line x1="20" y1="12" x2="20" y2="188" stroke="#f5ede4" stroke-width="5" stroke-linecap="butt"/>
-    <line x1="20" y1="12" x2="80" y2="12" stroke="#f5ede4" stroke-width="5" stroke-linecap="butt"/>
-    <path d="M80,12 C138,12 142,56 142,68 C142,80 138,118 80,118" fill="none" stroke="#f5ede4" stroke-width="5" stroke-linecap="butt"/>
-    <line x1="80" y1="118" x2="20" y2="118" stroke="#f5ede4" stroke-width="5" stroke-linecap="butt"/>
-    <line x1="92" y1="118" x2="162" y2="188" stroke="#f5ede4" stroke-width="5" stroke-linecap="butt"/>
-    <circle cx="218" cy="56" r="16" fill="#c0392b"/>
-    <rect x="208" y="92" width="14" height="96" fill="none" stroke="#f5ede4" stroke-width="4"/>
-    <line x1="248" y1="92" x2="248" y2="188" stroke="#f5ede4" stroke-width="5" stroke-linecap="butt"/>
-    <path d="M248,122 C248,92 278,88 296,88 C320,88 336,104 336,128 L336,188" fill="none" stroke="#f5ede4" stroke-width="5" stroke-linecap="butt" stroke-linejoin="round"/>
-    <path d="M440,108 C430,88 412,88 396,88 C366,88 352,106 352,138 C352,170 366,188 396,188 C412,188 430,188 440,168" fill="none" stroke="#f5ede4" stroke-width="5" stroke-linecap="butt"/>
-    <ellipse cx="528" cy="138" rx="52" ry="52" fill="none" stroke="#f5ede4" stroke-width="5"/>
-  </svg>
+  <img src="rinco-logo-light.svg" alt="Rinco" class="footer-logo">
   <p class="f-copy">© 2025 Rinco International Co., Ltd · All Rights Reserved</p>
   <a href="https://www.rinco-intl.com" class="f-url">www.rinco-intl.com</a>
 </footer>
