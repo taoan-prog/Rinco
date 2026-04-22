@@ -59,8 +59,10 @@ section{padding:7rem 5rem}
 .about-text p{font-size:0.9rem;line-height:1.95;color:var(--mid);margin-bottom:1rem}
 .stat-boxes{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:2.5rem}
 .stat-box{padding:1.6rem 1.4rem;background:var(--blush);border-left:2px solid var(--warm-tan)}
+.stat-box-wide{display:flex;align-items:center}
 .sb-num{font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:300;display:block}
 .sb-lab{font-size:0.67rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--mid);margin-top:0.25rem}
+.sb-lab-main{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:300;color:var(--dark);line-height:1.5}
 .about-img{position:relative;padding-bottom:2rem;padding-right:2rem}
 .about-img-main{width:100%;aspect-ratio:3/4;background:var(--blush);display:flex;align-items:center;justify-content:center}
 .about-badge{position:absolute;bottom:0;right:0;width:175px;height:148px;background:var(--warm-tan);display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--cream);text-align:center;padding:1.2rem}
@@ -94,6 +96,45 @@ section{padding:7rem 5rem}
 .prod-cat{font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--warm-tan);margin-bottom:0.3rem}
 .prod-name{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:300}
 .prod-code{font-size:0.68rem;color:var(--mid);margin-top:0.2rem;opacity:0.7}
+
+/* WHY RINCO */
+.why-section{background:var(--blush)}
+.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem;margin-top:3rem}
+.why-card{background:var(--cream);padding:2.5rem 2rem;border-top:2px solid var(--warm-tan)}
+.why-icon{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:rgba(184,146,122,0.25);line-height:1;margin-bottom:1.2rem}
+.why-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:300;color:var(--dark);margin-bottom:0.8rem}
+.why-desc{font-size:0.88rem;line-height:1.9;color:var(--mid)}
+
+/* BRANDS */
+.brands-section{background:var(--dark);padding:7rem 5rem}
+.brands-section .s-label{color:var(--warm-tan)}
+.brands-section .s-title{color:var(--cream)}
+.brands-section .s-title em{color:var(--warm-tan)}
+.brands-intro{font-size:0.9rem;line-height:1.9;color:rgba(245,237,228,0.6);max-width:600px;margin-top:1.2rem;margin-bottom:3.5rem}
+.brands-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(184,146,122,0.15)}
+.brand-item{background:var(--dark);padding:2rem 1.5rem;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transition:background 0.3s;min-height:100px}
+.brand-item:hover{background:rgba(184,146,122,0.08)}
+.brand-sub{display:block;font-size:0.55rem;letter-spacing:0.2em;margin-top:0.3rem;color:var(--warm-tan);font-weight:300;font-family:'Jost',sans-serif}
+
+/* Brand typography styles — each brand rendered in its own typographic voice */
+.brand-dior{font-family:'Didact Gothic','Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;letter-spacing:0.35em;color:rgba(245,237,228,0.9);text-transform:uppercase}
+.brand-gucci{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:400;letter-spacing:0.25em;color:rgba(245,237,228,0.9);text-transform:uppercase}
+.brand-givenchy{font-family:'Jost',sans-serif;font-size:0.85rem;font-weight:400;letter-spacing:0.3em;color:rgba(245,237,228,0.9);text-transform:uppercase}
+.brand-lancome{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:300;font-style:italic;letter-spacing:0.1em;color:rgba(245,237,228,0.9)}
+.brand-ysl{font-family:'Jost',sans-serif;font-size:1.6rem;font-weight:500;letter-spacing:0.15em;color:rgba(245,237,228,0.9);text-transform:uppercase}
+.brand-clarins{font-family:'Jost',sans-serif;font-size:1rem;font-weight:300;letter-spacing:0.28em;color:rgba(245,237,228,0.9);text-transform:uppercase}
+.brand-guerlain{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:400;letter-spacing:0.22em;color:rgba(245,237,228,0.9);text-transform:uppercase}
+.brand-ghd{font-family:'Jost',sans-serif;font-size:1.8rem;font-weight:300;letter-spacing:0.05em;color:rgba(245,237,228,0.9);text-transform:lowercase}
+.brand-charlotte{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:300;font-style:italic;letter-spacing:0.05em;color:rgba(245,237,228,0.9)}
+.brand-biotherm{font-family:'Jost',sans-serif;font-size:0.9rem;font-weight:500;letter-spacing:0.22em;color:rgba(245,237,228,0.9);text-transform:uppercase}
+.brand-shiseido{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:400;letter-spacing:0.18em;color:rgba(245,237,228,0.9);text-transform:uppercase}
+.brand-vichy{font-family:'Jost',sans-serif;font-size:1.3rem;font-weight:500;letter-spacing:0.2em;color:rgba(245,237,228,0.9);text-transform:uppercase}
+.brand-sephora{font-family:'Jost',sans-serif;font-size:1rem;font-weight:300;letter-spacing:0.3em;color:rgba(245,237,228,0.9);text-transform:uppercase}
+.brand-marcjacobs{font-family:'Jost',sans-serif;font-size:0.78rem;font-weight:400;letter-spacing:0.2em;color:rgba(245,237,228,0.9);text-transform:uppercase}
+.brand-kiehls{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:300;font-style:italic;letter-spacing:0.08em;color:rgba(245,237,228,0.9)}
+.brand-kate{font-family:'Jost',sans-serif;font-size:1rem;font-weight:300;letter-spacing:0.08em;color:rgba(245,237,228,0.9);text-transform:lowercase}
+.brand-ck{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:300;letter-spacing:0.12em;color:rgba(245,237,228,0.9)}
+.brand-chloe{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:300;font-style:italic;letter-spacing:0.06em;color:rgba(245,237,228,0.9)}
 
 /* CERTS */
 .cert-intro{font-size:0.92rem;line-height:1.9;color:var(--mid);max-width:640px;margin-top:1.5rem;margin-bottom:3rem}
@@ -140,10 +181,13 @@ footer{background:var(--dark);border-top:0.5px solid rgba(255,255,255,0.07);padd
   .hero-visual{height:320px}
   .hero-stat-feature{position:static;margin-top:-60px;align-self:center;right:auto}
   section{padding:4rem 1.5rem}
+  .brands-section{padding:4rem 1.5rem}
   .about-grid,.contact-grid{grid-template-columns:1fr;gap:3rem}
+  .why-grid{grid-template-columns:1fr;gap:1.2rem}
   .mat-grid{grid-template-columns:1fr}
   .mat-card{border-right:none;border-bottom:0.5px solid rgba(184,146,122,0.2)}
   .prod-grid{grid-template-columns:1fr 1fr}
+  .brands-grid{grid-template-columns:1fr 1fr}
   .cert-img-grid{grid-template-columns:1fr 1fr;gap:1.2rem}
   footer{flex-direction:column;gap:0.6rem;text-align:center;padding:1.5rem}
 }
@@ -158,8 +202,10 @@ footer{background:var(--dark);border-top:0.5px solid rgba(255,255,255,0.07);padd
   </a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
+    <li><a href="#why-rinco">Why Rinco</a></li>
     <li><a href="#materials">Materials</a></li>
     <li><a href="#products">Products</a></li>
+    <li><a href="#brands">Clients</a></li>
     <li><a href="#certifications">Certifications</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -213,28 +259,45 @@ footer{background:var(--dark);border-top:0.5px solid rgba(255,255,255,0.07);padd
       <p>From concept to sample, design proposals to cost optimization, Rinco serves each customer with dedication — equipping and upgrading ourselves constantly to meet every requirement, technically and ethically.</p>
       <div class="stat-boxes">
         <div class="stat-box"><span class="sb-num">24+</span><span class="sb-lab">Years of Excellence</span></div>
-        <div class="stat-box"><span class="sb-num">2</span><span class="sb-lab">Manufacturing Facilities</span></div>
-        <div class="stat-box"><span class="sb-num">7,200</span><span class="sb-lab">Sqm Factory Area</span></div>
-        <div class="stat-box"><span class="sb-num">3</span><span class="sb-lab">Core Eco Materials</span></div>
+        <div class="stat-box stat-box-wide"><span class="sb-lab-main">Multiple Sustainable<br>Material Solutions</span></div>
       </div>
     </div>
     <div class="about-img">
       <div class="about-img-main">
-        <svg viewBox="0 0 240 320" width="200" xmlns="http://www.w3.org/2000/svg">
-          <rect x="25" y="85" width="190" height="220" rx="5" fill="none" stroke="#8b6355" stroke-width="1.8"/>
-          <path d="M75,85 Q75,38 120,38 Q165,38 165,85" fill="none" stroke="#8b6355" stroke-width="1.8"/>
-          <rect x="106" y="91" width="28" height="12" rx="6" fill="none" stroke="#c0392b" stroke-width="1.6"/>
-          <circle cx="120" cy="97" r="2.5" fill="#c0392b"/>
-          <line x1="25" y1="130" x2="215" y2="130" stroke="#8b6355" stroke-width="0.8" opacity="0.3"/>
-          <text x="120" y="200" text-anchor="middle" font-family="Georgia,serif" font-size="9" fill="#8b6355" letter-spacing="2">SUSTAINABLE</text>
-          <text x="120" y="218" text-anchor="middle" font-family="Georgia,serif" font-size="9" fill="#8b6355" letter-spacing="2">COLLECTION</text>
-          <rect x="68" y="158" width="104" height="84" rx="2" fill="rgba(184,146,122,0.1)" stroke="rgba(184,146,122,0.22)" stroke-width="1"/>
-        </svg>
+        <img src="company/team-building.jpg" alt="Rinco Team" style="width:100%;height:100%;object-fit:cover;">
       </div>
       <div class="about-badge">
         <span>GRS</span>
         <small>Global Recycled<br>Standard Certified</small>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY RINCO -->
+<section id="why-rinco" class="why-section">
+  <p class="s-label">Why Rinco</p>
+  <h2 class="s-title">Built on <em>experience,</em><br>driven by results</h2>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">01</div>
+      <h3 class="why-title">Europe &amp; US Market Focus</h3>
+      <p class="why-desc">Our products are primarily exported to European and North American markets. Years of serving discerning international clients have given us deep insight into quality expectations, compliance requirements, and market trends.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">02</div>
+      <h3 class="why-title">Rigorous Quality Control</h3>
+      <p class="why-desc">From raw material inspection to final delivery, every step is governed by our in-house quality assurance system. Our clients return to us because our products consistently meet — and exceed — their expectations.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">03</div>
+      <h3 class="why-title">Eco Material Expertise</h3>
+      <p class="why-desc">We have accumulated extensive knowledge and hands-on experience in sustainable materials and environmental compliance. We help our clients navigate eco certifications, material sourcing, and regulatory requirements with confidence.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">04</div>
+      <h3 class="why-title">Advanced Equipment &amp; Competitive Pricing</h3>
+      <p class="why-desc">Significant investment in cutting-edge machinery — laser cutting, automated edge-turning, precision stamping — drives production efficiency and consistent quality, enabling us to offer strong price competitiveness without compromising standards.</p>
     </div>
   </div>
 </section>
@@ -306,6 +369,33 @@ footer{background:var(--dark);border-top:0.5px solid rgba(255,255,255,0.07);padd
     });
 })();
 </script>
+
+<!-- BRANDS WE PRODUCE FOR -->
+<section id="brands" class="brands-section">
+  <p class="s-label">Production Partners</p>
+  <h2 class="s-title">Brands we <em>produce for</em></h2>
+  <p class="brands-intro">We are proud to manufacture for some of the world's most recognised names in beauty, fragrance, and lifestyle. Each brand is presented here in its own typographic style — a testament to the diversity and calibre of the work we do.</p>
+  <div class="brands-grid">
+    <div class="brand-item brand-dior">DIOR</div>
+    <div class="brand-item brand-gucci">GUCCI<span class="brand-sub">beauty</span></div>
+    <div class="brand-item brand-givenchy">GIVENCHY<span class="brand-sub">PARFUMS</span></div>
+    <div class="brand-item brand-lancome">Lancôme</div>
+    <div class="brand-item brand-ysl">YSL<span class="brand-sub">BEAUTÉ</span></div>
+    <div class="brand-item brand-clarins">CLARINS</div>
+    <div class="brand-item brand-guerlain">GUERLAIN<span class="brand-sub">PARIS</span></div>
+    <div class="brand-item brand-ghd">ghd</div>
+    <div class="brand-item brand-charlotte">Charlotte Tilbury</div>
+    <div class="brand-item brand-biotherm">BIOTHERM</div>
+    <div class="brand-item brand-shiseido">SHISEIDO</div>
+    <div class="brand-item brand-vichy">VICHY<span class="brand-sub">LABORATOIRES</span></div>
+    <div class="brand-item brand-sephora">SEPHORA</div>
+    <div class="brand-item brand-marcjacobs">MARC JACOBS<span class="brand-sub">FRAGRANCES</span></div>
+    <div class="brand-item brand-kiehls">Kiehl's</div>
+    <div class="brand-item brand-kate">kate spade<span class="brand-sub">NEW YORK</span></div>
+    <div class="brand-item brand-ck">Calvin Klein<span class="brand-sub">Fragrances</span></div>
+    <div class="brand-item brand-chloe">Chloé<span class="brand-sub">PARFUM</span></div>
+  </div>
+</section>
 
 <!-- CERTIFICATIONS -->
 <section id="certifications">
